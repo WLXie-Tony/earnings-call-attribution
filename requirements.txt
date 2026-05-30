@@ -1,4 +1,4 @@
-# Python dependencies for the ICAIF 2026 self-serving attribution pipeline.
+# Python dependencies for the self-serving attribution pipeline.
 # Inferred from imports across all pipeline scripts.
 # Tested with Python 3.10 (conda env: mlfin).
 

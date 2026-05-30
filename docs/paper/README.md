@@ -1,6 +1,6 @@
 # Paper draft
 
-The LaTeX source for the ICAIF 2026 paper draft belongs here
+The LaTeX source for the paper draft belongs here
 (e.g. `icaif_2026_draft_v2.tex` and any figures/bibliography).
 
 No `.tex` file was found in the project folder at the time the repository was

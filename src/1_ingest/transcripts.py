@@ -1,6 +1,6 @@
 """
 WRDS Capital IQ Transcripts - Production Download
-ICAIF 2026 paper: Managerial Self-Serving Attribution
+Paper: Managerial Self-Serving Attribution in Earnings Calls
 
 Sample: All earnings calls 2019Q1-2023Q4
 Output: 20 quarterly parquet files in ./transcripts_data/

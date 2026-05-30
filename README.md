@@ -263,14 +263,12 @@ coding is approximately deterministic.
 ## Citation
 
 ```bibtex
-@inproceedings{xie2026ssa,
-  title     = {Self-Serving Attribution in Earnings Calls: An LLM-Based
-               Measurement Framework and Within-Firm Evidence on Externalizing},
-  author    = {Xie, Wenlan},
-  booktitle = {Proceedings of the 7th ACM International Conference on AI in
-               Finance (ICAIF '26)},
-  year      = {2026},
-  note      = {Working paper.}
+@unpublished{xie2026ssa,
+  title  = {Self-Serving Attribution in Earnings Calls: An LLM-Based
+            Measurement Framework and Within-Firm Evidence on Externalizing},
+  author = {Xie, Wenlan},
+  year   = {2026},
+  note   = {Working paper.}
 }
 ```
 
