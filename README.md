@@ -2,7 +2,7 @@
 
 **An LLM-Based Measurement Framework and Within-Firm Evidence on Externalizing**
 
-*Wenlan Xie · University of Chicago — ICAIF 2026 submission*
+*Wenlan Xie · University of Chicago*
 
 ---
 
