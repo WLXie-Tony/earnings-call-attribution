@@ -138,49 +138,78 @@ export DEEPSEEK_API_KEY="sk-..."     # Windows: setx DEEPSEEK_API_KEY "sk-..."
 
 ## Run instructions (raw download → final tables)
 
+> **Run every script from the repository root** (not from inside `src/`), so the
+> relative data paths in each script (e.g. `./llm_coding_sample.parquet`) resolve to
+> the repo root where the pipeline reads and writes its datasets.
+
 ```bash
 conda activate mlfin
 export DEEPSEEK_API_KEY="sk-..."
 
 # 1. Download raw CIQ transcripts (long; 2.8 GB output to transcripts_data/)
-python transcripts.py
+python src/1_ingest/transcripts.py
 
 # 2. Build analyst-question / executive-answer pairs   (see note: build_qa_pairs.py)
-python build_qa_pairs.py
+python src/1_ingest/build_qa_pairs.py          # script not yet in repo — see note
 
 # 3. Build the SUE linking panel (CIQ → CUSIP → IBES → PERMNO)
-python build_sue_link.py
+python src/2_link_sue/build_sue_link.py
 
 # 4. Clean and winsorize SUE
-python clean_sue.py
+python src/2_link_sue/clean_sue.py
 
 # 5. Rank within quarter, keep top/bottom tertiles
-python finalize_sue.py
+python src/2_link_sue/finalize_sue.py
 
 # 6. Sample Q-A pairs for LLM coding
-python sample_qa_for_llm.py
+python src/3_llm_coding/sample_qa_for_llm.py
 
 # 7. (Optional) Pilot LLM run on 500 pairs
-python run_llm_coding.py
+python src/3_llm_coding/run_llm_coding.py
 
 # 8. Full production LLM coding (162,677 pairs; async + resumable)
-python run_production_deepseek.py
+python src/3_llm_coding/run_production_deepseek.py
 
 # 9. Build firm-quarter SSA panel
-python build_ssa_panel.py
+python src/4_analysis/build_ssa_panel.py
 
 # 10. Pull CRSP / FF / IBES / Compustat supplement
-python pull_crsp_ibes_supplement.py
+python src/4_analysis/pull_crsp_ibes_supplement.py
 
 # 11. Asset-pricing tests (portfolio sorts + Fama-MacBeth)
-python asset_pricing_test.py
+python src/4_analysis/asset_pricing_test.py
 
 # 12. Mechanism tests (within-firm next-quarter SUE, horizons, falsification)
-python mechanism_test.py
-python mechanism_debug.py
+python src/4_analysis/mechanism_test.py
+python src/4_analysis/mechanism_debug.py
 ```
 
+## Repository layout
+
+```
+earnings-call-attribution/
+├── README.md  LICENSE  requirements.txt  .gitignore
+├── data/
+│   └── sample_production_output.jsonl     # first 100 LLM codes (illustrative)
+├── docs/
+│   ├── PIPELINE.md                        # detailed data-flow reference
+│   └── paper/                             # LaTeX draft goes here
+└── src/
+    ├── 1_ingest/        transcripts.py    (+ build_qa_pairs.py — see note)
+    ├── 2_link_sue/      build_sue_link.py · clean_sue.py · finalize_sue.py
+    ├── 3_llm_coding/    attribution_prompt.py · sample_qa_for_llm.py
+    │                    run_llm_coding.py · run_production_deepseek.py
+    └── 4_analysis/      build_ssa_panel.py · pull_crsp_ibes_supplement.py
+                         asset_pricing_test.py · mechanism_test.py · mechanism_debug.py
+```
+
+The large pipeline datasets (`*.parquet`, `transcripts_data/`, the full
+`production_deepseek.jsonl`) are written to and read from the **repository root** and
+are all git-ignored; only the illustrative sample under `data/` is committed.
+
 ## File map — scripts
+
+Scripts live under `src/<stage>/` as shown in the layout above.
 
 | Script | What it does |
 |--------|--------------|

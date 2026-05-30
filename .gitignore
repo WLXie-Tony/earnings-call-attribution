@@ -15,6 +15,7 @@ transcripts_data/
 production_deepseek.jsonl
 pilot_deepseek.jsonl
 *.jsonl
+!data/sample_production_output.jsonl
 !sample_production_output.jsonl
 
 # ============================================================
