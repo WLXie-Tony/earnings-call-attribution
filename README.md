@@ -2,7 +2,7 @@
 
 **An LLM-Based Measurement Framework and Within-Firm Evidence on Externalizing**
 
-*Anonymous submission — ICAIF 2026 (double-blind)*
+*Wenlan Xie · University of Chicago — ICAIF 2026 submission*
 
 ---
 
@@ -234,14 +234,14 @@ coding is approximately deterministic.
 ## Citation
 
 ```bibtex
-@inproceedings{anonymous2026ssa,
+@inproceedings{xie2026ssa,
   title     = {Self-Serving Attribution in Earnings Calls: An LLM-Based
                Measurement Framework and Within-Firm Evidence on Externalizing},
-  author    = {Anonymous},
+  author    = {Xie, Wenlan},
   booktitle = {Proceedings of the 7th ACM International Conference on AI in
                Finance (ICAIF '26)},
   year      = {2026},
-  note      = {Under review. Double-blind submission.}
+  note      = {Working paper.}
 }
 ```
 
