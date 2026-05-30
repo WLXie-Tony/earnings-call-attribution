@@ -2,7 +2,7 @@
 
 **An LLM-Based Measurement Framework and Within-Firm Evidence on Externalizing**
 
-*Wenlan Xie · University of Chicago — ICAIF 2026 submission*
+*Wenlan Xie · University of Chicago*
 
 ---
 
@@ -133,7 +133,7 @@ export DEEPSEEK_API_KEY="sk-..."     # Windows: setx DEEPSEEK_API_KEY "sk-..."
 
 | Variable | Used by | Purpose |
 |----------|---------|---------|
-| `DEEPSEEK_API_KEY` | `run_llm_coding.py`, `run_production_deepseek.py` | DeepSeek V3 API key (platform.deepseek.com). **Never hardcode.** |
+| `DEEPSEEK_API_KEY` | `run_llm_coding.py`, `run_production_deepseek.py` | DeepSeek V4 API key (platform.deepseek.com). **Never hardcode.** |
 | WRDS credentials | all `wrds`-using scripts | Stored in `~/.pgpass` after the first `wrds.Connection()`; prompted interactively otherwise. |
 
 ## Run instructions (raw download → final tables)
