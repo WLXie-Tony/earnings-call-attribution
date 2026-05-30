@@ -1,0 +1,11 @@
+# Python dependencies for the ICAIF 2026 self-serving attribution pipeline.
+# Inferred from imports across all pipeline scripts.
+# Tested with Python 3.10 (conda env: mlfin).
+
+pandas>=1.5
+numpy>=1.23
+statsmodels>=0.14
+scipy>=1.10
+wrds>=3.1            # WRDS data access (Capital IQ Transcripts, IBES, CRSP, Compustat)
+openai>=1.0          # DeepSeek V3 via OpenAI-compatible API
+pyarrow>=12.0        # parquet read/write

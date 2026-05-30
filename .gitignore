@@ -1,0 +1,58 @@
+# ============================================================
+# Data — NOT redistributable (paid WRDS / S&P Capital IQ data)
+# ============================================================
+# Raw CIQ Transcripts (2.8 GB). Redistribution violates the WRDS
+# license agreement. Regenerate locally via transcripts.py.
+transcripts_data/
+
+# All derivative datasets built from WRDS CIQ / CRSP / IBES / Compustat.
+# These are derivative works of paid data and are license-restricted.
+# Regenerate locally by running the pipeline (see README.md).
+*.parquet
+
+# Full LLM output (162,677 responses) — derivative of WRDS data.
+# Only sample_production_output.jsonl (first 100 lines) is tracked.
+production_deepseek.jsonl
+pilot_deepseek.jsonl
+*.jsonl
+!sample_production_output.jsonl
+
+# ============================================================
+# Logs (may contain run metadata / paths)
+# ============================================================
+production_progress.log
+download.log
+download.err
+production.log
+*.log
+transcripts_data/download_log.txt
+
+# ============================================================
+# Secrets / credentials — never commit
+# ============================================================
+.env
+.env.*
+*.pgpass
+.pgpass
+secrets.*
+*credentials*
+*api_key*
+
+# ============================================================
+# Python / tooling
+# ============================================================
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# ============================================================
+# Editor / OS
+# ============================================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
